@@ -2,6 +2,7 @@
 import argparse
 import markdown
 import re
+import os
 
 def convert_markdown_to_html(markdown_path, output_file=None):
     try:
@@ -18,6 +19,7 @@ def convert_markdown_to_html(markdown_path, output_file=None):
 
     if output_file:
         try:
+            os.makedirs(os.path.dirname(output_file), exist_ok=True)
             with open(output_file, 'w', encoding='utf-8') as file:
                 file.write(html_content)
         except Exception as e:
@@ -26,27 +28,7 @@ def convert_markdown_to_html(markdown_path, output_file=None):
         print(html_content)
 
 def convert_markdown_to_html_core(content):
-    # Convert headings
-    content = re.sub(r'^# (.+)$', r'<h1>\1</h1>', content, flags=re.MULTILINE)
-    content = re.sub(r'^## (.+)$', r'<h2>\1</h2>', content, flags=re.MULTILINE)
-    content = re.sub(r'^### (.+)$', r'<h3>\1</h3>', content, flags=re.MULTILINE)
-
-    # Convert lists
-    content = re.sub(r'^\* (.+)$', r'<li>\1</li>', content, flags=re.MULTILINE)
-    content = re.sub(r'^(?:\n|^)(\s*)<li>(.+)</li>', r'\1<ul>\2</ul>', content, flags=re.MULTILINE)
-
-    # Convert code blocks
-    content = re.sub(r'```(.*?)```', r'<pre><code>\1</code></pre>', content, flags=re.DOTALL)
-
+    content = convert_headings(content)
+    content = convert_lists(content)
+    content = convert_code_blocks(content)
     return content
-
-def main():
-    parser = argparse.ArgumentParser(description='Convert Markdown to HTML')
-    parser.add_argument('markdown_path', type=str, default='01_source.md', nargs='?', help='Path to the markdown file (default: 01_source.md)')
-    parser.add_argument('--out', type=str, help='Output file path for HTML content')
-
-    args = parser.parse_args()
-    convert_markdown_to_html(args.markdown_path, args.out)
-
-if __name__ == '__main__':
-    main()
