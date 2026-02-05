@@ -1,0 +1,33 @@
+{
+  "doc_kind": "unknown",
+  "doc_version": "unknown",
+  "criteria": [
+    {
+      "criterion_id": "work_summary",
+      "max_points": 2.0,
+      "prompt": "- Goal (one line):\n- Result (one line):   # what exists now that didn\u2019t exist before"
+    },
+    {
+      "criterion_id": "roles",
+      "max_points": 4.0,
+      "prompt": "**Driver (2 concrete actions)**\n- D1:\n- D2:\n\n**Navigator (2 concrete actions)**\n- N1:\n- N2:\n\n**If human_llm (required):**\n- Kept:\n- Rejected:\n- Why (one line):"
+    },
+    {
+      "criterion_id": "snag",
+      "max_points": 2.0,
+      "prompt": "- Snag (what went wrong / got confusing):\n- Response (what you tried that helped):"
+    },
+    {
+      "criterion_id": "next_time",
+      "max_points": 2.0,
+      "prompt": "Pick ONE checkbox:\n- [ ] Swap roles next time\n- [ ] Confirm requirements first\n- [ ] Test earlier (tiny example)\n- [ ] Think out loud more\n- [ ] Ask better questions (smaller, sharper)\n\nOne sentence: what will you do differently next time?"
+    }
+  ],
+  "total_points": 10.0,
+  "expected_total_points": 10.0,
+  "valid_total": true,
+  "notes": {
+    "signoff_required": true,
+    "private_note_ignored": true
+  }
+}

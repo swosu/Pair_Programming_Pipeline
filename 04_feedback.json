@@ -1,0 +1,27 @@
+{
+  "score_total": 10.0,
+  "criteria": [
+    {
+      "criterion_id": "work_summary",
+      "points": 2.0,
+      "comment": ""
+    },
+    {
+      "criterion_id": "roles",
+      "points": 4.0,
+      "comment": ""
+    },
+    {
+      "criterion_id": "snag",
+      "points": 2.0,
+      "comment": ""
+    },
+    {
+      "criterion_id": "next_time",
+      "points": 2.0,
+      "comment": ""
+    }
+  ],
+  "overall_comment": "The submission demonstrates a thorough understanding of the rubric and provides concrete evidence for each criterion. The pair-programming process was well-executed, with clear actions taken to address any issues that arose. The next steps are clearly outlined and actionable.",
+  "flags": []
+}
